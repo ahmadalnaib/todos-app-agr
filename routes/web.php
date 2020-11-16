@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 
 Route::get('/todos', [TodoController::class, 'index'])->name('todos.index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
