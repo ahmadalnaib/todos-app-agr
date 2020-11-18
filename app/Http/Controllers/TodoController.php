@@ -45,9 +45,10 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function show(Todo $todo)
+    public function show( $id)
     {
-        //
+        $todo=Todo::find($id);
+        return view('todos.show',compact('todo'));
     }
 
     /**
