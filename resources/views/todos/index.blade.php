@@ -18,7 +18,7 @@
           <a href="{{route('todos.show',$todo->id)}}"><i class="far fa-eye mr-2"></i></a>
           </span>
           <span class="float-right">
-            <a href="#"><i class="far fa-edit mr-2"></i></a>
+          <a href=""><i class="far fa-edit mr-2"></i></a>
           </span>
         </li>
               
