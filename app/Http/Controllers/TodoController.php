@@ -38,7 +38,7 @@ class TodoController extends Controller
     {
 
         $request->validate([
-        'title'=>'required',
+        'title'=>'required|min:4',
         'content'=>'required'
         ]);
 
