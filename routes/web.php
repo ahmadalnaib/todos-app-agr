@@ -32,9 +32,10 @@ Route::post('/create', [TodoController::class, 'store'])->name('todos.store');
 Route::get('/todos/{id}/edit', [TodoController::class, 'edit'])->name('todos.edit');
 
 // update data
-Route::put('/todos/{edit}', [TodoController::class, 'update'])->name('todos.update');
+Route::put('/todos/{id}/edit', [TodoController::class, 'update'])->name('todos.update');
 
-
+//delete todo
+Route::get('/todos/{id}/delete', [TodoController::class, 'destroy'])->name('todos.delete');
 
 
 
