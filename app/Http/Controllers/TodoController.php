@@ -48,6 +48,8 @@ class TodoController extends Controller
          
         ]);
 
+        $request->session()->flash('success','Todo created successfully');
+
         return redirect()->route('todos.index');
         
     }
@@ -99,7 +101,7 @@ class TodoController extends Controller
                $todo->save()
              
             ]);
-    
+            session()->flash('success','Todo updated successfully');
             return redirect()->route('todos.index');
     }
 
@@ -113,6 +115,8 @@ class TodoController extends Controller
     {
         $todo=Todo::findOrFail($id);
         $todo->delete();
+
+        session()->flash('success','Todo deleted successfully');
         return redirect()->route('todos.index');
     }
 }
