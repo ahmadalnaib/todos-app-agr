@@ -70,9 +70,10 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todo $todo)
+    public function edit($id)
     {
-        //
+        $todo=Todo::findOrFail($id);
+        return view('todos.edit',compact('todo'));
     }
 
     /**
@@ -82,9 +83,24 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request, $id)
     {
-        //
+
+        $todo=Todo::findOrFail($id);
+        
+        $request->validate([
+            'title'=>'required|min:4',
+            'content'=>'required'
+            ]);
+    
+            $todo->update([
+               'title'=>request('title'),
+               'content'=>request('content'),
+               $todo->save()
+             
+            ]);
+    
+            return redirect()->route('todos.index');
     }
 
     /**

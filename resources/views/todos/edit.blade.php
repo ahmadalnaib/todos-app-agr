@@ -8,30 +8,31 @@
         <div class="col-md-6">
           <div class="card">
             <div class="card-header">
-              <h1>create a new Todo</h1>
+              <h1>edit Todo</h1>
             </div>
             <div class="card-body">
-@if($errors->any())
-<div class="alert alert-danger">
-  <ul>
-    @foreach ($errors->all() as $error)
-  <li>{{$error}}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
+            @if($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+              <li>{{$error}}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
 
-            <form action="{{route('todos.store')}}" method="post">
+            <form action="{{route('todos.update',$todo->id)}}" method="post">
               @csrf
+              @method('put')
                 <div class="form-group">
                   <label for="title">title</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
+                <input type="text" class="form-control" id="title" name="title" value="{{$todo->title}}">
                 </div>
 
                 <div class="form-group">
                   <label for="content">content</label>
                  <textarea name="content"  class="form-control" id="content" cols="30" rows="10">
-                   {{old('content')}}
+                  {{$todo->content}}
                  </textarea>
                 </div>
              
