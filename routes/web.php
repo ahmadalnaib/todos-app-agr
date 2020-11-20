@@ -37,6 +37,9 @@ Route::put('/todos/{id}/edit', [TodoController::class, 'update'])->name('todos.u
 //delete todo
 Route::get('/todos/{id}/delete', [TodoController::class, 'destroy'])->name('todos.delete');
 
+// complate todo
+Route::get('/todos/{id}/complate', [TodoController::class, 'complate'])->name('todos.complate');
+
 
 
 Auth::routes();

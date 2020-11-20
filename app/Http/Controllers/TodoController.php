@@ -119,4 +119,15 @@ class TodoController extends Controller
         session()->flash('success','Todo deleted successfully');
         return redirect()->route('todos.index');
     }
+
+
+
+    public function complate($id)
+    {
+        $todo=Todo::findOrFail($id);
+        $todo->completed=true;
+        $todo->save();
+        session()->flash('success','Todo compated successfully');
+        return redirect()->route('todos.index');
+    }
 }
